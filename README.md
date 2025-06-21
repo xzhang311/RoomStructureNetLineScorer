@@ -1,5 +1,5 @@
 # RoomStructureNetLineScorer
-The implementation of the paper of my paper: RoomStructNet: Learning to Rank Non-Cuboidal Room Layouts From Single View
+The implementation of the paper: [RoomStructNet: Learning to Rank Non-Cuboidal Room Layouts From Single View](https://arxiv.org/abs/2110.00644)
 
 ## 📚 Citation
 
@@ -24,4 +24,3 @@ If you find our work useful, please cite it using the following BibTeX:
   biburl       = {https://dblp.org/rec/journals/corr/abs-2110-00644.bib},
   bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
-
