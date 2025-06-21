@@ -1,0 +1,52 @@
+io:
+  root: /mnt/ebs_xizhn2/Data/DYR/OFFLINE_DATASET/lsun_experiment
+  root_images: /mnt/ebs_xizhn2/Data/DYR/OFFLINE_DATASET/lsun_experiment/images
+  root_layout_lines: /mnt/ebs_xizhn2/Data/DYR/OFFLINE_DATASET/lsun_experiment/labels_lines
+  root_line_scores: /mnt/ebs_xizhn2/Data/DYR/OFFLINE_DATASET/lsun_experiment/line_scores
+  root_layout_heatmap: /mnt/ebs_xizhn2/Data/DYR/OFFLINE_DATASET/lsun_experiment/heatmap_pred/drn_d_105_024_all_ms_features
+  split_file_train: /mnt/ebs_xizhn2/Data/DYR/OFFLINE_DATASET/lsun_experiment/train_ids.txt
+  split_file_val: /mnt/ebs_xizhn2/Data/DYR/OFFLINE_DATASET/lsun_experiment/val_ids.txt
+  num_workers: 8
+  resume_from:
+  validation_interval: 4000
+  tensorboard_port: 0
+  logdir: logs/
+
+
+model:
+  image_size: 128
+  batch_size: 8
+  batch_size_eval: 8
+  n_lines_per_image: 288
+
+  # LOIPool layer parameters
+  n_pts0: 32
+  n_pts1: 8
+
+# line scorer network parameters
+  dim_loi: 128
+  dim_fc: 1024
+
+  use_conv: 0
+  use_slop: 0
+  use_cood: 0
+
+  # hour glass backbone
+  depth: 4
+  num_stacks: 2
+  num_blocks: 1
+  head_size: [[2], [1], [2]]
+  loss_weight:
+    jmap: 8.0
+    lmap: 0.5
+    joff: 0.25
+    lpos: 1
+    lneg: 1
+
+optim:
+  name: Adam
+  lr: 1.0e-4
+  amsgrad: True
+  weight_decay: 4.0e-2
+  max_epoch: 120
+  lr_decay_epoch: 20

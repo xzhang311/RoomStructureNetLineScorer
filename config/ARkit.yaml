@@ -1,0 +1,52 @@
+io:
+  root: /mnt/ebs_xizhn2/Data/DYR/OFFLINE_DATASET/ARkitData
+  root_images: /mnt/ebs_xizhn2/Data/DYR/OFFLINE_DATASET/ARkitData/images
+  root_layout_heatmap: /mnt/ebs_xizhn2/Data/DYR/OFFLINE_DATASET/ARkitData/heatmap_pred/drn_d_105_024_all_ms_features
+  root_lcnn_pred_lines: /mnt/ebs_xizhn2/Data/DYR/OFFLINE_DATASET/ARkitData/lcnn_pred
+  root_split_offset: /mnt/ebs_xizhn2/Data/DYR/OFFLINE_DATASET/ARkitData/split_offset
+  split_file: /mnt/ebs_xizhn2/Data/DYR/OFFLINE_DATASET/ARkitData/all_ids.txt
+
+  num_workers: 8
+  resume_from:
+  validation_interval: 4000
+  tensorboard_port: 0
+  logdir: logs/
+
+
+model:
+  image_size: 128
+  batch_size: 8
+  batch_size_eval: 8
+  n_lines_per_image: 288
+
+  # LOIPool layer parameters
+  n_pts0: 32
+  n_pts1: 8
+
+# line scorer network parameters
+  dim_loi: 128
+  dim_fc: 1024
+
+  use_conv: 0
+  use_slop: 0
+  use_cood: 0
+
+  # hour glass backbone
+  depth: 4
+  num_stacks: 2
+  num_blocks: 1
+  head_size: [[2], [1], [2]]
+  loss_weight:
+    jmap: 8.0
+    lmap: 0.5
+    joff: 0.25
+    lpos: 1
+    lneg: 1
+
+optim:
+  name: Adam
+  lr: 5.0e-5
+  amsgrad: True
+  weight_decay: 4.0e-2
+  max_epoch: 120
+  lr_decay_epoch: 20
