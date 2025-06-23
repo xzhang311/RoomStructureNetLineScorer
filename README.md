@@ -3,6 +3,9 @@
 ## Overview
 RoomStructureNetLineScorer is a Python implementation of my paper, *["RoomStructNet: Learning to Rank Non-Cuboidal Room Layouts From Single View"](https://arxiv.org/abs/2110.00644),* published in 2021. This project focuses on a deep learning model that ranks non-cuboidal room layouts from a single-view image, enabling accurate estimation of complex indoor structures. It is designed for applications in computer vision, 3D scene understanding, and architectural analysis.
 
+## Preview
+![Preview 1](LineScorer_pic3.png)
+
 ## Features
 - **Room Layout Ranking**: Learns to rank non-cuboidal room layouts based on single-view images.
 - **Line-Based Scoring**: Utilizes line segments to evaluate and score room structure hypotheses.
